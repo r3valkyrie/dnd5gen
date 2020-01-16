@@ -10,8 +10,6 @@ from random import choice, sample
 def get_as_mod(as_value):
     return floor((as_value - 10) / 2)
 
-# TODO: Add support for subclasses.
-
 
 class Fighter:
     def __init__(self, as_str, as_dex, as_con,
@@ -21,8 +19,6 @@ class Fighter:
         self.as_mods = []
         for x in [as_str, as_dex, as_con, as_int, as_wis, as_cha]:
             self.as_mods.append(get_as_mod(x))
-
-        # TODO: Add support for higher-level characters
         self.level = 1
         self.hit_points = 10 + self.as_mods[2]
         self.armor_profs = [
@@ -56,7 +52,6 @@ class Fighter:
                 [["Dungeoneer's pack"],
                  ["Explorer's pack"]]
             ]
-
             for x in equipment_choices:
                 for y in choice(x):
                     self.equipment.append(y)
@@ -68,7 +63,6 @@ class Fighter:
                 skill_choices.remove(x)
 
         self.skills = char_background.add_skills + sample(skill_choices, 2)
-
         self.features = [[
             "Second Wind",
             "You have a limited well of stamina that you can draw on to protect yourself "
@@ -76,7 +70,6 @@ class Fighter:
             "to 1d10 + your fighter level. Once you use this feature, you must finish a short "
             "or long rest before you can use it again"
         ]]
-
         fighting_styles = [
             ["Archery", "You gain a +2 bonus to attack rolls you make with ranged weapons."],
             ["Defense", "While you are wearing armor, you gain a +1 bonus to AC."],
@@ -89,5 +82,4 @@ class Fighter:
                                       " the two-handed or versatile property for you to gain"
                                       " this benefit."]
         ]
-
         self.features.append(choice(fighting_styles))

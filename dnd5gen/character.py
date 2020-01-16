@@ -19,15 +19,11 @@ class Character:
         a = sorted(a, reverse=True)
 
         # Some attributes are prioritized differently for different classes.
-        # TODO: Add support for more backgrounds.
         char_background = choice([Acolyte()])
-        # TODO: Add support for more races.
         char_race = choice([Human(char_background)])
-        # TODO: Add support for more classes.
         char_class = choice(
             [Fighter(a[0], a[1], a[2], a[3], a[4], a[5], char_race, char_background)])
 
-        # TODO: Calculate AC based on armor and dex modifier.
         # Character info
         self.name = char_race.full_name
         self.race = char_race.race

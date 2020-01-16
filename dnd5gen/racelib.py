@@ -5,8 +5,6 @@ from os import path
 from json import load
 from random import choice, randrange, sample
 
-# TODO: Add support for subraces.
-
 
 class Human:
     def __init__(self, char_background):
