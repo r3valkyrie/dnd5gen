@@ -1,4 +1,5 @@
 # dnd5gen (WIP)
+https://pypi.org/project/dnd5gen/0.0.1/
 
 A python 3.6+ library to generate D&D 5e characters on the fly.
 
