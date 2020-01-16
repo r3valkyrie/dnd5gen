@@ -15,9 +15,12 @@ class Fighter:
     def __init__(self, as_str, as_dex, as_con,
                  as_int, as_wis, as_cha, char_race, char_background):
         self.classname = "Fighter"
-        self.as_scores = [as_str, as_dex, as_con, as_int, as_wis, as_cha]
+        bonus_asi = char_race.bonus_asi
+        self.as_scores = []
+        for x, y in zip(bonus_asi, [as_str, as_dex, as_con, as_int, as_wis, as_cha]):
+            self.as_scores.append(x + y)
         self.as_mods = []
-        for x in [as_str, as_dex, as_con, as_int, as_wis, as_cha]:
+        for x in self.as_scores:
             self.as_mods.append(get_as_mod(x))
         self.level = 1
         self.hit_points = 10 + self.as_mods[2]

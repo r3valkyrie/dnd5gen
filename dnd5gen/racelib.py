@@ -18,6 +18,7 @@ class Human:
 
         self.race = "Human"
         self.gender = choice(['male', 'female'])
+        self.bonus_asi = [1, 1, 1, 1, 1, 1]
         self.first_name = choice(names['first'][self.gender])
         self.last_name = choice(names['last'])
         self.full_name = f"{self.first_name} {self.last_name}"
