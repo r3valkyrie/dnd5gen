@@ -6,8 +6,8 @@ Currently does not support all character options.
 
 ##### Basic Usage
 ```python
-from dnd5gen import character
+import dnd5gen
 
-my_char = character.Character()
+my_char = dnd5gen.Character()
 print(vars(my_char))
 ```
