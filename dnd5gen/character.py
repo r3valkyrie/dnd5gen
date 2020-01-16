@@ -2,9 +2,9 @@ from random import choice
 
 from dice import roll
 
-from lib.backgroundlib import Acolyte
-from lib.classlib import Fighter
-from lib.racelib import Human
+from dnd5gen.backgroundlib import Acolyte
+from dnd5gen.classlib import Fighter
+from dnd5gen.racelib import Human
 
 
 class Character:
@@ -112,5 +112,5 @@ FEATURES
 """)
 
 
-if __name__ == "__main__":
-    Character().print_char_vals()
+def main():
+    return Character()
