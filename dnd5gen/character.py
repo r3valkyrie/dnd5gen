@@ -1,6 +1,4 @@
-from random import choice
-
-from dice import roll
+from random import choice, randrange
 
 from dnd5gen.backgroundlib import Acolyte
 from dnd5gen.classlib import Fighter
@@ -12,9 +10,12 @@ class Character:
         a = []
 
         for x in range(0, 6):
-            r = roll('4d6')
+            r = []
+            for y in range(0, 4):
+                r.append(randrange(1, 7))
             r.remove(min(r))
             a.append(sum(r))
+            r = []
 
         a = sorted(a, reverse=True)
 
