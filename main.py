@@ -1,4 +1,3 @@
-import pprint
 from random import choice
 
 from dice import roll
@@ -20,11 +19,15 @@ class Character:
         a = sorted(a, reverse=True)
 
         # Some attributes are prioritized differently for different classes.
+        # TODO: Add support for more backgrounds.
         char_background = choice([Acolyte()])
+        # TODO: Add support for more races.
         char_race = choice([Human(char_background)])
+        # TODO: Add support for more classes.
         char_class = choice(
             [Fighter(a[0], a[1], a[2], a[3], a[4], a[5], char_race, char_background)])
 
+        # TODO: Calculate AC based on armor and dex modifier.
         # Character info
         self.name = char_race.full_name
         self.race = char_race.race
@@ -64,9 +67,50 @@ class Character:
         self.equipment = char_background.equipment + char_class.equipment
         self.features = char_background.features + char_race.features + char_class.features
 
-        pp = pprint.PrettyPrinter(indent=4)
-        pp.pprint(vars(self))
+    def print_char_vals(self):
+        hr = "-" * 35
+        nl = '\n'
+        sm = "-" * 5
+        out_str = f"""
+{hr}
+Name: {self.name}
+Class: {self.classname} {self.level}
+Race: {self.race}
+Alignment: {self.alignment}
+Background: {self.background}
+{hr}
+STR: {self.strength:2}({self.strength_mod:2}) DEX: {self.dexterity:2}({self.dexterity_mod:2}) CON: {self.constitution:2}({self.constitution_mod:2})
+INT: {self.intelligence:2}({self.intelligence_mod:2}) WIS: {self.wisdom:2}({self.wisdom_mod:2}) CHA: {self.charisma:2}({self.charisma_mod:2})
+{hr}
+SKILL PROFICIENCIES\n
+{nl.join(self.skills)}
+{hr}
+LANGUAGES\n
+{nl.join(self.languages)}
+{hr}
+ARMOR PROFICIENCIES\n
+{nl.join(self.armor_profs)}
+{hr}
+WEAPON PROFICIENCIES\n
+{nl.join(self.weapon_profs)}
+{hr}
+TOOL PROFICIENCIES\n
+{nl.join(self.tool_profs)}
+{hr}
+EQUIPMENT\n
+{nl.join(self.equipment)}
+{hr}
+FEATURES
+"""
+
+        print(out_str)
+        for x in self.features:
+            print(f"""{x[0]}
+{sm}
+{x[1]}
+{nl}
+""")
 
 
 if __name__ == "__main__":
-    Character()
+    Character().print_char_vals()
