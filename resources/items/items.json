@@ -1,0 +1,29 @@
+{
+  "weapons": {
+    "martial": [
+      "Battleaxe",
+      "Flail",
+      "Glaive",
+      "Greataxe",
+      "Greatsword",
+      "Halberd",
+      "Lance",
+      "Longsword",
+      "Maul",
+      "Morningstar",
+      "Pike",
+      "Rapier",
+      "Scimitar",
+      "Shortsword",
+      "Trident",
+      "War Pick",
+      "Warhammer",
+      "Whip",
+      "Blowgun",
+      "Hand Crossbow",
+      "Heavy Crossbow",
+      "Longbow",
+      "Net"
+    ]
+  }
+}
