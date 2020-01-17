@@ -9,10 +9,10 @@ from random import choice, randrange, sample
 class Human:
     def __init__(self, char_background):
         resource_path = path.join(path.dirname(__file__))
-        with open(resource_path + "/resources/names_human.json") as human_names:
+        with open(resource_path + "/../resources/names_human.json") as human_names:
             names = load(human_names)
 
-        with open(resource_path + "/resources/languages.json") as languages:
+        with open(resource_path + "/../resources/languages.json") as languages:
             langs = load(languages)
             langs.remove("Common")
 

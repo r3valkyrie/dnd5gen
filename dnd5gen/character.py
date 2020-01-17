@@ -1,8 +1,8 @@
 from random import choice, randrange
 
-from dnd5gen.backgroundlib import Acolyte
-from dnd5gen.classlib import Fighter
-from dnd5gen.racelib import Human
+from dnd5gen.char_backgrounds.acolyte import Acolyte
+from dnd5gen.char_classes import Fighter
+from dnd5gen.char_races import Human
 
 
 class Character:
@@ -109,5 +109,5 @@ FEATURES
 """)
 
 
-def main():
-    return Character()
+if __name__ == "__main__":
+    Character().print_char_vals()

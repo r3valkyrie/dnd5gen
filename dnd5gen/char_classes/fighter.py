@@ -1,14 +1,7 @@
-"""
-Returns a character_class object.
-"""
 from os import path
 from json import load
 from math import floor
 from random import choice, sample
-
-
-def get_as_mod(as_value):
-    return floor((as_value - 10) / 2)
 
 
 class Fighter:
@@ -21,7 +14,7 @@ class Fighter:
             self.as_scores.append(x + y)
         self.as_mods = []
         for x in self.as_scores:
-            self.as_mods.append(get_as_mod(x))
+            self.as_mods.append(floor((x - 10) / 2))
         self.level = 1
         self.hit_points = 10 + self.as_mods[2]
         self.armor_profs = [
@@ -39,7 +32,7 @@ class Fighter:
         self.skills = []
         self.equipment = []
         resource_path = path.join(path.dirname(__file__))
-        with open(resource_path + '/resources/items.json') as items:
+        with open(resource_path + '/../resources/items.json') as items:
             martial_weapon = load(items)['weapons']['martial']
             equipment_choices = [
                 # Equipment A

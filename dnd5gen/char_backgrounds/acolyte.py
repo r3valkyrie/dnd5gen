@@ -1,8 +1,3 @@
-"""
-Returns a character background
-"""
-
-
 class Acolyte:
     def __init__(self):
         self.background_name = "Acolyte"
