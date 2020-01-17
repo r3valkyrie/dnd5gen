@@ -4,6 +4,9 @@ The backgrounds, races, and classes are all modular, and should all work without
 needing to edit any of the main files assuming they all return the proper
 attributes.
 
+Please ensure that all non-python files are placed in `dnd5gen/resources` so that they get picked
+up by setuptools during build time.
+
 ### Adding backgrounds
 Create a new python class in `dnd5gen/char_backgrounds/`. The class should
 take no arguments (except `self`), and should have all of the following attributes set after
