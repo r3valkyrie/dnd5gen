@@ -73,6 +73,10 @@ class RaceName:
         # int containing the character's speed. Different races have different base speeds.
         self.speed = 30
 
+        # str containing the race's size.
+        self.size = 'Medium'
+
+
         # list of str containing the character's known languages.
         # Avoid having duplicate languages in the list, since you can't know the same language twice.
         resource_path = path.join(path.dirname(__file__))

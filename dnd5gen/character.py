@@ -29,7 +29,7 @@ class Character:
         # Some attributes are prioritized differently for different classes.
 
         char_background = choice(getmembers(bgs, isclass))[1]()
-        char_race = choice([races.Human(char_background)])
+        char_race = choice(getmembers(races, isclass))[1](char_background)
         char_class = choice(
             [classes.Fighter(a[0], a[1], a[2], a[3], a[4], a[5], char_race, char_background)])
 
@@ -42,7 +42,8 @@ class Character:
                          f'{choice(["Good", "Neutral", "Evil"])}'
         if self.alignment == "Neutral Neutral":
             self.alignment = "Neutral"
-        self.speed = 30
+        self.speed = char_race.speed
+        self.size = char_race.size
         self.languages = char_race.languages_known
         self.background = char_background.background_name
 

@@ -33,6 +33,7 @@ class Human:
                                   "Tan", "Brown", "Dark Brown", "Black"])
         self.age = randrange(18, 60)
         self.speed = 30
+        self.size = 'Medium'
         self.languages_known = ["Common"] + \
                                [x for x in sample(langs, 1 + char_background.add_langs)]
         self.features = []
