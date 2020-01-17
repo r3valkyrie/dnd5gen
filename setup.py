@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="dnd5gen",
-    version="0.0.1",
+    version="0.0.2",
     author="Valkyrie",
     author_email="valkyrie@r3valkyrie.com",
     description="Library to help implement random 5e character generation into my projects.",
