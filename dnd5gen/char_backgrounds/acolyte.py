@@ -1,7 +1,8 @@
 class Acolyte:
     def __init__(self):
         self.background_name = "Acolyte"
-        self.add_skills = ["Insight", "Religion"]
+        self.skill_profs = ["Insight", "Religion"]
+        self.tool_profs = []
         self.add_langs = 2
         self.equipment = ["Holy symbol", "Prayer book", "5 sticks of incense",
                           "Vestments", "Common clothes", "Belt pouch containing 15 gp"]

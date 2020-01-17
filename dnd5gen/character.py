@@ -1,8 +1,15 @@
-from random import choice, randrange
+try:
+    from inspect import getmembers, isclass
+    from random import choice, randrange
 
-from dnd5gen.char_backgrounds.acolyte import Acolyte
-from dnd5gen.char_classes import Fighter
-from dnd5gen.char_races import Human
+except ImportError:
+    from random import choice, randrange
+    raise ImportError
+
+finally:
+    import dnd5gen.char_backgrounds as bgs
+    import dnd5gen.char_races as races
+    import dnd5gen.char_classes as classes
 
 
 class Character:
@@ -20,10 +27,11 @@ class Character:
         a = sorted(a, reverse=True)
 
         # Some attributes are prioritized differently for different classes.
-        char_background = choice([Acolyte()])
-        char_race = choice([Human(char_background)])
+
+        char_background = choice(getmembers(bgs, isclass))[1]()
+        char_race = choice([races.Human(char_background)])
         char_class = choice(
-            [Fighter(a[0], a[1], a[2], a[3], a[4], a[5], char_race, char_background)])
+            [classes.Fighter(a[0], a[1], a[2], a[3], a[4], a[5], char_race, char_background)])
 
         # Character info
         self.name = char_race.full_name

@@ -28,6 +28,8 @@ class Fighter:
             "Martial weapons"
         ]
         self.tool_profs = []
+        for x in char_background.tool_profs:
+            self.tool_profs.append(x)
         self.saving_throws = ["str", "con"]
         self.skills = []
         self.equipment = []
@@ -54,11 +56,11 @@ class Fighter:
 
         skill_choices = ["Acrobatics", "Animal Handling", "Athletics",
                          "History", "Insight", "Intimidation", "Perception", "Survival"]
-        for x in char_background.add_skills:
+        for x in char_background.skill_profs:
             if x in skill_choices:
                 skill_choices.remove(x)
 
-        self.skills = char_background.add_skills + sample(skill_choices, 2)
+        self.skills = char_background.skill_profs + sample(skill_choices, 2)
         self.features = [[
             "Second Wind",
             "You have a limited well of stamina that you can draw on to protect yourself "
