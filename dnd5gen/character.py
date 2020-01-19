@@ -4,6 +4,7 @@ try:
 
 except ImportError:
     from random import choice, randrange
+
     raise ImportError
 
 finally:
@@ -13,25 +14,31 @@ finally:
 
 
 class Character:
-    def __init__(self):
-        a = []
+    def __init__(self, level=None):
 
+        # Generate ability scores
+        a = []
         for x in range(0, 6):
             r = []
             for y in range(0, 4):
                 r.append(randrange(1, 7))
             r.remove(min(r))
             a.append(sum(r))
-            r = []
 
         a = sorted(a, reverse=True)
+
+        # Check if a level was specified
+        self.level = randrange(1, 21) if level is None else level
 
         # Some attributes are prioritized differently for different classes.
 
         char_background = choice(getmembers(bgs, isclass))[1]()
         char_race = choice(getmembers(races, isclass))[1](char_background)
         char_class = choice(
-            [classes.Fighter(a[0], a[1], a[2], a[3], a[4], a[5], char_race, char_background)])
+            [classes.Fighter(a[0], a[1], a[2], a[3], a[4], a[5],
+                             char_race,
+                             char_background,
+                             self.level)])
 
         # Character info
         self.name = char_race.full_name
@@ -63,8 +70,7 @@ class Character:
 
         # Class info
         self.classname = char_class.classname
-        self.level = char_class.level
-        self.hp = char_class.hit_points
+        self.hp = char_class.hp
         self.armor_profs = char_class.armor_profs
         self.weapon_profs = char_class.weapon_profs
         self.tool_profs = char_class.tool_profs
@@ -78,6 +84,7 @@ class Character:
         nl = '\n'
         sm = "-" * 5
         out_str = f"""
+
 {hr}
 Name: {self.name}
 Class: {self.classname} {self.level}
@@ -108,7 +115,6 @@ EQUIPMENT\n
 {hr}
 FEATURES
 """
-
         print(out_str)
         for x in self.features:
             print(f"""{x[0]}
@@ -117,6 +123,3 @@ FEATURES
 {nl}
 """)
 
-
-if __name__ == "__main__":
-    Character().print_char_vals()
