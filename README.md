@@ -10,5 +10,6 @@ Currently does not support all character options.
 import dnd5gen
 
 my_char = dnd5gen.Character()
-print(vars(my_char))
+print(vars(my_char))                # If you want a simple list of all the variables.
+my_char.print_char_vals()           # If you want them printed out in a human-readable format.
 ```
