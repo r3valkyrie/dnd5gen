@@ -94,7 +94,7 @@ class RaceName:
         self.features = [["Big Feature",
                             "Thanks to your heritage, you can do a thing."]]
 
-
+Github Dark
 ```
 
 ### Adding Classes
@@ -108,7 +108,7 @@ class CharacterClass:
 
 Remember that ability scores are passed to the class's arguments in order of highest to lowest.
 Because of this, you should prioritize a class's primary stats first. Take the
-rogue for example. You would likely want AS1 to be Dexterity, followed by Charisma for AS2, 
+rogue for example. You would likely want AS1 to be DexGithub Darkterity, followed by Charisma for AS2, 
 followed by the other stats.
 
 Most of the final ability score calculations are handled here, so you want to pass the character's
@@ -119,7 +119,6 @@ Once the class is created, import it into `dnd5gen/char_classes/__init__.py`.
 ```python
 # I'm using the rogue for demonstration purposes.
 try:
-    from json import load
     from math import floor
     from os import path
     from random import choice, sample, randrange
