@@ -93,8 +93,6 @@ class RaceName:
         # list of lists of str containing any racial features.
         self.features = [["Big Feature",
                             "Thanks to your heritage, you can do a thing."]]
-
-Github Dark
 ```
 
 ### Adding Classes
